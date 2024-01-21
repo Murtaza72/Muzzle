@@ -1,0 +1,8 @@
+﻿# Folders
+.vs/
+/Muzzle/x64/
+/Sandbox/x64/
+/x64/
+
+# Files
+*.user
