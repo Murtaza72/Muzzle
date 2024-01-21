@@ -27,9 +27,15 @@
     <ClInclude Include="src\Muzzle\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Muzzle\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Muzzle\Application.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Muzzle\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

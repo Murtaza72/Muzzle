@@ -1,0 +1,3 @@
+[submodule "Muzzle/vendor/spdlog"]
+	path = Muzzle/vendor/spdlog
+	url = https://github.com/gabime/spdlog
