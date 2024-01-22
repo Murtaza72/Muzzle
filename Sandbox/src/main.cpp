@@ -1,3 +1,4 @@
+#include <mzpch.h>
 #include <Muzzle.h>
 
 class Sandbox : public Muzzle::Application

@@ -76,10 +76,11 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>mzpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MZ_PLATFORM_WINDOWS;MZ_BUILD_DLL;_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING;MZ_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -92,15 +93,16 @@
       <ImportLibrary>..\bin\Debug-windows-x86_64\Muzzle\Muzzle.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Muzzle\Muzzle.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Muzzle\Muzzle.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Muzzle\Muzzle.dll ..\bin\Debug-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Debug-windows-x86_64\Muzzle\Muzzle.dll\ (xcopy /Q /E /Y /I ..\bin\Debug-windows-x86_64\Muzzle\Muzzle.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug-windows-x86_64\Muzzle\Muzzle.dll "..\bin\Debug-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>mzpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MZ_PLATFORM_WINDOWS;MZ_BUILD_DLL;_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING;MZ_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -117,15 +119,16 @@
       <ImportLibrary>..\bin\Release-windows-x86_64\Muzzle\Muzzle.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Release-windows-x86_64\Muzzle\Muzzle.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Muzzle\Muzzle.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Muzzle\Muzzle.dll ..\bin\Release-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Release-windows-x86_64\Muzzle\Muzzle.dll\ (xcopy /Q /E /Y /I ..\bin\Release-windows-x86_64\Muzzle\Muzzle.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release-windows-x86_64\Muzzle\Muzzle.dll "..\bin\Release-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>mzpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MZ_PLATFORM_WINDOWS;MZ_BUILD_DLL;_SILENCE_STDEXT_ARR_ITERS_DEPRECATION_WARNING;MZ_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -142,7 +145,7 @@
       <ImportLibrary>..\bin\Dist-windows-x86_64\Muzzle\Muzzle.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
-      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Muzzle\Muzzle.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Muzzle\Muzzle.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Muzzle\Muzzle.dll ..\bin\Dist-windows-x86_64\Sandbox &gt; nul)</Command>
+      <Command>IF EXIST ..\bin\Dist-windows-x86_64\Muzzle\Muzzle.dll\ (xcopy /Q /E /Y /I ..\bin\Dist-windows-x86_64\Muzzle\Muzzle.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Dist-windows-x86_64\Muzzle\Muzzle.dll "..\bin\Dist-windows-x86_64\Sandbox\" &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -150,11 +153,19 @@
     <ClInclude Include="src\Muzzle\Application.h" />
     <ClInclude Include="src\Muzzle\Core.h" />
     <ClInclude Include="src\Muzzle\EntryPoint.h" />
+    <ClInclude Include="src\Muzzle\Events\AppEvent.h" />
+    <ClInclude Include="src\Muzzle\Events\Event.h" />
+    <ClInclude Include="src\Muzzle\Events\KeyEvent.h" />
+    <ClInclude Include="src\Muzzle\Events\MouseEvent.h" />
     <ClInclude Include="src\Muzzle\Log.h" />
+    <ClInclude Include="src\mzpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Muzzle\Application.cpp" />
     <ClCompile Include="src\Muzzle\Log.cpp" />
+    <ClCompile Include="src\mzpch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

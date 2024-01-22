@@ -21,6 +21,9 @@ project "Muzzle"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "mzpch.h"
+	pchsource "Muzzle/src/mzpch.cpp"
+
 	files 
 	{
 		"%{prj.name}/src/**.cpp",
@@ -29,6 +32,7 @@ project "Muzzle"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include"
 	}
 
@@ -44,7 +48,7 @@ project "Muzzle"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"

@@ -4,6 +4,9 @@
     <Filter Include="Muzzle">
       <UniqueIdentifier>{AC6B06C4-980D-319A-81C8-44EE6D09B8EA}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Muzzle\Events">
+      <UniqueIdentifier>{10BEF04C-7C7E-6C83-45B9-B500B138B15F}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Muzzle.h" />
@@ -16,9 +19,22 @@
     <ClInclude Include="src\Muzzle\EntryPoint.h">
       <Filter>Muzzle</Filter>
     </ClInclude>
+    <ClInclude Include="src\Muzzle\Events\AppEvent.h">
+      <Filter>Muzzle\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Muzzle\Events\Event.h">
+      <Filter>Muzzle\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Muzzle\Events\KeyEvent.h">
+      <Filter>Muzzle\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Muzzle\Events\MouseEvent.h">
+      <Filter>Muzzle\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Muzzle\Log.h">
       <Filter>Muzzle</Filter>
     </ClInclude>
+    <ClInclude Include="src\mzpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Muzzle\Application.cpp">
@@ -27,5 +43,6 @@
     <ClCompile Include="src\Muzzle\Log.cpp">
       <Filter>Muzzle</Filter>
     </ClCompile>
+    <ClCompile Include="src\mzpch.cpp" />
   </ItemGroup>
 </Project>
