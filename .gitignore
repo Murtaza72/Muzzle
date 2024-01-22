@@ -1,8 +1,7 @@
 ﻿# Folders
 .vs/
-/Muzzle/x64/
-/Sandbox/x64/
-/x64/
+/bin/
+/bin-int/
 
 # Files
 *.user
