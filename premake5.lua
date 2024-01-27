@@ -12,11 +12,16 @@ workspace "Muzzle"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Muzzle/vendor/GLFW/include"
+
+include "Muzzle/vendor/GLFW"
+
 project "Muzzle"
 	location "Muzzle"
 	kind "SharedLib"
 	cppdialect "C++17"
-	staticruntime "on"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -33,7 +38,14 @@ project "Muzzle"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
@@ -56,6 +68,11 @@ project "Muzzle"
 		runtime "Debug"
 		symbols "on"
 
+		defines
+		{
+			"MZ_ENABLE_ASSERTS"
+		}
+
 	filter "configurations:Release"
 		defines "MZ_RELEASE"
 		runtime "Release"
@@ -69,6 +86,7 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	cppdialect "C++17"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -101,6 +119,11 @@ project "Sandbox"
 		runtime "Debug"
 		symbols "on"
 
+		defines
+		{
+			"MZ_ENABLE_ASSERTS"
+		}
+
 	filter "configurations:Release"
 		defines "MZ_RELEASE"
 		runtime "Release"
@@ -108,4 +131,5 @@ project "Sandbox"
 
 	filter "configurations:Dist"
 		defines "MZ_DIST"
+		runtime "Release"
 		optimize "on"

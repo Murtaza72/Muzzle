@@ -4,10 +4,13 @@
 #include "Muzzle/Events/AppEvent.h"
 #include "Muzzle/Log.h"
 
+#include <GLFW/glfw3.h>
+
 namespace Muzzle {
 
 	Application::Application()
 	{
+		m_Window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -16,16 +19,11 @@ namespace Muzzle {
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1280, 720);
-		if (e.IsInCategory(EventCategoryApplication))
+		while (true)
 		{
-			MZ_TRACE(e);
+			m_Window->OnUpdate();
+			glClearColor(1, 0, 1, 0);
+			glClear(GL_COLOR_BUFFER_BIT);
 		}
-		if (e.IsInCategory(EventCategoryInput))
-		{
-			MZ_TRACE(e);
-		}
-
-		while (true);
 	}
 }

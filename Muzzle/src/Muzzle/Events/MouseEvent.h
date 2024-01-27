@@ -22,8 +22,10 @@ namespace Muzzle {
 			return ss.str();
 		}
 
+		virtual int GetCategoryFlags() const override { return EventCategoryMouse | EventCategoryInput; }
+
 		EVENT_CLASS_TYPE(MouseMoved)
-			EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+
 	private:
 		float m_MouseX, m_MouseY;
 	};
@@ -46,8 +48,10 @@ namespace Muzzle {
 			return ss.str();
 		}
 
+		virtual int GetCategoryFlags() const override { return EventCategoryMouse | EventCategoryInput; }
+
 		EVENT_CLASS_TYPE(MouseScrolled)
-			EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+
 	private:
 		float m_XOffset, m_YOffset;
 	};
@@ -57,7 +61,8 @@ namespace Muzzle {
 	public:
 		inline int GetMouseButton() const { return m_Button; }
 
-		EVENT_CLASS_CATEGORY(EventCategoryMouse | EventCategoryInput)
+		virtual int GetCategoryFlags() const override { return EventCategoryMouse | EventCategoryInput; }
+
 	protected:
 		MouseButtonEvent(int button)
 			: m_Button(button)
